@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Card, Button } from "antd";
-import ScrollableAnchor from "react-scrollable-anchor";
 
 const PokemonList = () => {
   const url = "https://pokeapi.co/api/v2/pokemon/?limit=1";
@@ -55,20 +54,18 @@ const PokemonList = () => {
       >
         Load more
       </Button>
-      <ScrollableAnchor>
-        <div style={{ paddingTop: 15 }}>
-          {pokemons.map((pokemon, index) => {
-            return (
-              <Card key={index} title={pokemon.name} style={{ width: 300 }}>
-                <img
-                  src={pokemon.sprite}
-                  alt={`Sprite for ${pokemon.name}`}
-                ></img>
-              </Card>
-            );
-          })}
-        </div>
-      </ScrollableAnchor>
+      <div style={{ paddingTop: 15 }}>
+        {pokemons.map((pokemon, index) => {
+          return (
+            <Card key={index} title={pokemon.name} style={{ width: 300 }}>
+              <img
+                src={pokemon.sprite}
+                alt={`Sprite for ${pokemon.name}`}
+              ></img>
+            </Card>
+          );
+        })}
+      </div>
     </div>
   );
 };
